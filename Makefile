@@ -26,6 +26,14 @@ lint: ## Terraform format check and terraform validate
 	@terraform fmt -recursive -check
 	@terraform validate
 
+.PHONY: plan
+plan: ## Terraform plan
+	@(cd terraform && terraform plan)
+
+.PHONY: apply
+apply: ## Terraform apply
+	@(cd terraform && terraform apply -lock=false)
+
 .PHONY: key
 key: ## Generate key for sops
 	@age-keygen
@@ -41,3 +49,7 @@ encrypt: ## Encrypt terraform secret. ex) make encrypt secret=password
 .PHONY: decrypt
 decrypt: ## Decrypt terraform secret. ex) make decrypt secret=password
 	@script/decrypt.sh ${secret}
+
+.PHONY: sops
+sops: ## Operation check of sops. The result is output under tmp.
+	@script/sops.sh
