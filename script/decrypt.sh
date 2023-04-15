@@ -2,9 +2,9 @@
 
 secret=$1
 
-if [[ ! -e terraform/sops/${secret}.json ]]; then echo "terraform/sops/${secret}.json not exists"; exit 1; fi
+if [[ ! -e terraform/sops/${secret}.enc.json ]]; then echo "terraform/sops/${secret}.enc.json not exists"; exit 1; fi
 
-sops --decrypt terraform/sops/${secret}.json > terraform/sops/${secret}.tmp.json
+sops --decrypt terraform/sops/${secret}.enc.json > terraform/sops/${secret}.tmp.json
 
 touch secret/${secret}.in.txt
 
