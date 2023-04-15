@@ -32,7 +32,7 @@ plan: ## Terraform plan
 
 .PHONY: apply
 apply: ## Terraform apply
-	@(cd terraform && terraform apply -lock=false)
+	@(cd terraform && terraform apply)
 
 .PHONY: key
 key: ## Generate key for sops

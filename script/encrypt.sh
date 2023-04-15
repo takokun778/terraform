@@ -10,6 +10,6 @@ sops --encrypt \
 	 --age ${key} \
 	secret/${secret}.in.txt > terraform/sops/${secret}.json.tmp
 
-cat terraform/sops/${secret}.json.tmp | jq . > terraform/sops/${secret}.json
+cat terraform/sops/${secret}.json.tmp | jq . > terraform/sops/${secret}.enc.json
 
 rm terraform/sops/${secret}.json.tmp
