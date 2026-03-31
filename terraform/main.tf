@@ -2,7 +2,7 @@ terraform {
   required_providers {
     sops = {
       source  = "carlpett/sops"
-      version = "0.7.2"
+      version = "1.4.1"
     }
     cockroach = {
       source  = "cockroachdb/cockroach"
